@@ -25,7 +25,9 @@ namespace AllocationsServer
         {
             // Add framework services.
             services.AddMvc();
+
             services.AddDiscoveryClient(Configuration);
+            
             services.AddDbContext<AllocationContext>(options => options.UseMySql(Configuration));
             services.AddScoped<IAllocationDataGateway, AllocationDataGateway>();
 
