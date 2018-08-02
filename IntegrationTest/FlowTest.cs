@@ -96,8 +96,8 @@ namespace IntegrationTest
 
             var createdAllocationId = _httpClient.Post( _allocationsServer.Url($"/allocations?projectId={createdProjectId}"), new Dictionary<string, object>
             {
-                {"projectId", createdProjectId.ToString()},
-                {"userId", createdUserId.ToString()},
+                {"projectId", createdProjectId},
+                {"userId", createdUserId},
                 {"firstDay", "2015-05-17"},
                 {"lastDay", "2015-05-26"}
             }).Content.FindId();
