@@ -57,24 +57,24 @@ namespace IntegrationTest
             _backlogServer.Start();
             _timesheetsServer.Start();
 
-            HttpResponseMessage response;
+            //HttpResponseMessage response;
 
-            response = _httpClient.Get(_registrationServer.Url());
-            Assert.Equal("Noop!", response.Content.AsString());
+            // response = _httpClient.Get(_registrationServer.Url());
+            // Assert.Equal("Noop!", response.Content.AsString());
 
-            var createdUserId = _httpClient.Post(_registrationServer.Url("/registration"), new Dictionary<string, object>
-            {
-                {"name", "aUser"}
-            }).Content.FindId();
-            AssertGreaterThan(createdUserId, 0);
+            // var createdUserId = _httpClient.Post(_registrationServer.Url("/registration"), new Dictionary<string, object>
+            // {
+            //     {"name", "aUser"}
+            // }).Content.FindId();
+            // AssertGreaterThan(createdUserId, 0);
 
-            response = _httpClient.Get(_registrationServer.Url($"/users/{createdUserId}"));
-            AssertNotNullOrEmpty(response.Content.AsString());
-            Assert.True(response.IsSuccessStatusCode);
+            // response = _httpClient.Get(_registrationServer.Url($"/users/{createdUserId}"));
+            // AssertNotNullOrEmpty(response.Content.AsString());
+            // Assert.True(response.IsSuccessStatusCode);
 
-            var createdAccountId = _httpClient.Get(_registrationServer.Url($"/accounts?ownerId={createdUserId}"))
-                .Content.FindId();
-            AssertGreaterThan(createdAccountId, 0);
+            // var createdAccountId = _httpClient.Get(_registrationServer.Url($"/accounts?ownerId={createdUserId}"))
+            //     .Content.FindId();
+            // AssertGreaterThan(createdAccountId, 0);
 
             // var createdProjectId = _httpClient.Post(_registrationServer.Url("/projects"), new Dictionary<string, object>
             // {
